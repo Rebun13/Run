@@ -133,11 +133,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Factory.cpp" />
     <ClCompile Include="InputDispatcher.cpp" />
     <ClCompile Include="InputReceiver.cpp" />
     <ClCompile Include="Run.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Factory.h" />
     <ClInclude Include="InputDispatcher.h" />
     <ClInclude Include="InputReceiver.h" />
   </ItemGroup>
