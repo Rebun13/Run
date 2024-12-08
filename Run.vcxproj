@@ -134,14 +134,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="InputDispatcher.cpp" />
     <ClCompile Include="InputReceiver.cpp" />
     <ClCompile Include="Run.cpp" />
+    <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component.h" />
     <ClInclude Include="Factory.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Graphics.h" />
     <ClInclude Include="InputDispatcher.h" />
     <ClInclude Include="InputReceiver.h" />
+    <ClInclude Include="Update.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
