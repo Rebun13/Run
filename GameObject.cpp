@@ -26,4 +26,4 @@ void GameObject::draw(VertexArray& canvas) {
 			static_pointer_cast<Graphics> (component)->draw(canvas);
 		}
 	}
-}
+} 

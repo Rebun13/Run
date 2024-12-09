@@ -138,7 +138,9 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="InputDispatcher.cpp" />
     <ClCompile Include="InputReceiver.cpp" />
+    <ClCompile Include="LevelUpdate.cpp" />
     <ClCompile Include="Run.cpp" />
+    <ClCompile Include="SoundEngine.cpp" />
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +150,8 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="InputDispatcher.h" />
     <ClInclude Include="InputReceiver.h" />
+    <ClInclude Include="LevelUpdate.h" />
+    <ClInclude Include="SoundEngine.h" />
     <ClInclude Include="Update.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
