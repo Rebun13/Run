@@ -10,6 +10,8 @@ void LevelUpdate::assemble(
 	shared_ptr<PlayerUpdate> playerUpdate
 ) {
 	m_PlayerPosition = playerUpdate->getPositionPointer();
+	//temp
+	SoundEngine::startMusic();
 }
 
 void LevelUpdate::connectToCameraTime(float* cameraTime) {
