@@ -133,6 +133,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CameraGraphics.cpp" />
+    <ClCompile Include="CameraUpdate.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Graphics.cpp" />
@@ -146,6 +148,8 @@
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CameraGraphics.h" />
+    <ClInclude Include="CameraUpdate.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Factory.h" />
     <ClInclude Include="GameObject.h" />
