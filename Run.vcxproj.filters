@@ -54,6 +54,12 @@
     <ClCompile Include="CameraGraphics.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="PlatformUpdate.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformGraphics.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InputDispatcher.h">
@@ -93,6 +99,12 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="CameraGraphics.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformUpdate.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformGraphics.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
