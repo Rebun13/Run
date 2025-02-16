@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animator.cpp" />
     <ClCompile Include="CameraGraphics.cpp" />
     <ClCompile Include="CameraUpdate.cpp" />
     <ClCompile Include="Factory.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animator.h" />
     <ClInclude Include="CameraGraphics.h" />
     <ClInclude Include="CameraUpdate.h" />
     <ClInclude Include="Component.h" />
