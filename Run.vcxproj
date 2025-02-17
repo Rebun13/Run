@@ -142,6 +142,8 @@
     <ClCompile Include="InputDispatcher.cpp" />
     <ClCompile Include="InputReceiver.cpp" />
     <ClCompile Include="LevelUpdate.cpp" />
+    <ClCompile Include="MenuGraphics.cpp" />
+    <ClCompile Include="MenuUpdate.cpp" />
     <ClCompile Include="PlatformGraphics.cpp" />
     <ClCompile Include="PlatformUpdate.cpp" />
     <ClCompile Include="PlayerGraphics.cpp" />
@@ -161,6 +163,8 @@
     <ClInclude Include="InputDispatcher.h" />
     <ClInclude Include="InputReceiver.h" />
     <ClInclude Include="LevelUpdate.h" />
+    <ClInclude Include="MenuGraphics.h" />
+    <ClInclude Include="MenuUpdate.h" />
     <ClInclude Include="PlatformGraphics.h" />
     <ClInclude Include="PlatformUpdate.h" />
     <ClInclude Include="PlayerGraphics.h" />

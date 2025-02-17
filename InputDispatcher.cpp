@@ -9,10 +9,6 @@ InputDispatcher::InputDispatcher(RenderWindow* window) {
 void InputDispatcher::dispatchInputEvents() {
 	sf::Event event;
 	while (m_Window->pollEvent(event)) {
-		//if (event.type == Event::KeyPressed &&
-		// event.key.code == Keyboard::Escape) {
-		// m_Window->close();
-		//}
 		for (const auto& ir : m_InputReceivers) {
 			ir->addEvent(event);
 		}

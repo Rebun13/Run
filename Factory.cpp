@@ -7,6 +7,8 @@
 #include "CameraGraphics.h"
 #include "PlatformUpdate.h"
 #include "PlatformGraphics.h"
+#include "MenuUpdate.h"
+#include "MenuGraphics.h"
 
 #include <iostream>
 
@@ -129,5 +131,26 @@ void Factory::loadLevel(
 	mapCamera.addComponent(mapCameraGraphics);
 	gameObjects.push_back(mapCamera);
 	// End Map Camera
+
+	// Menu
+	GameObject menu;
+	shared_ptr<MenuUpdate> menuUpdate = make_shared<MenuUpdate>(m_Window);
+	menuUpdate->assemble(levelUpdate, playerUpdate);
+	inputDispatcher.registerNewInputReceiver(menuUpdate->getInputReceiver());
+	menu.addComponent(menuUpdate);
+	shared_ptr<MenuGraphics>menuGraphics = make_shared<MenuGraphics>();
+	menuGraphics->assemble(
+		canvas,
+		menuUpdate,
+		IntRect(
+			TOP_MENU_TEX_LEFT,
+			TOP_MENU_TEX_TOP,
+			TOP_MENU_TEX_WIDTH,
+			TOP_MENU_TEX_HEIGHT
+		)
+	);
+	menu.addComponent(menuGraphics);
+	gameObjects.push_back(menu);
+	// End menu
 
 }
