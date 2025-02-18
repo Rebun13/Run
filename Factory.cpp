@@ -9,6 +9,8 @@
 #include "PlatformGraphics.h"
 #include "MenuUpdate.h"
 #include "MenuGraphics.h"
+#include "RainGraphics.h"
+
 
 #include <iostream>
 
@@ -75,6 +77,40 @@ void Factory::loadLevel(
 		levelUpdate->addPlatformPosition(platformUpdate->getPositionPointer());
 	}
 	// End platforms
+
+	 // Rain
+	int rainCoveragePerObject = 25;
+	int areaToCover = 350;
+	for (
+		int h = -areaToCover / 2;
+		h < areaToCover / 2;
+		h += rainCoveragePerObject
+	) {
+		for (
+			int v = -areaToCover / 2;
+			v < areaToCover / 2;
+			v += rainCoveragePerObject
+		) {
+			GameObject rain;
+			shared_ptr<RainGraphics> rainGraphics = make_shared<RainGraphics>(
+				playerUpdate->getPositionPointer(),
+				h, v, rainCoveragePerObject
+			);
+			rainGraphics->assemble(
+				canvas, nullptr,
+				IntRect(
+					RAIN_TEX_LEFT,
+					RAIN_TEX_TOP,
+					RAIN_TEX_WIDTH,
+					RAIN_TEX_HEIGHT
+				)
+			);
+			rain.addComponent(rainGraphics);
+			gameObjects.push_back(rain);
+		}
+	}
+	//End rain
+
 
 	// For both the cameras
 	const float width = float(VideoMode::getDesktopMode().width);

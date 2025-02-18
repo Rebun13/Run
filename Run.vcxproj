@@ -148,6 +148,7 @@
     <ClCompile Include="PlatformUpdate.cpp" />
     <ClCompile Include="PlayerGraphics.cpp" />
     <ClCompile Include="PlayerUpdate.cpp" />
+    <ClCompile Include="RainGraphics.cpp" />
     <ClCompile Include="Run.cpp" />
     <ClCompile Include="SoundEngine.cpp" />
     <ClCompile Include="Update.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="PlatformUpdate.h" />
     <ClInclude Include="PlayerGraphics.h" />
     <ClInclude Include="PlayerUpdate.h" />
+    <ClInclude Include="RainGraphics.h" />
     <ClInclude Include="SoundEngine.h" />
     <ClInclude Include="Update.h" />
   </ItemGroup>
