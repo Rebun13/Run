@@ -19,6 +19,18 @@ CameraGraphics::CameraGraphics(
         m_Text.setFillColor(Color(255, 0, 0, 255));
         m_Text.setScale(0.2f, 0.2f);
     }
+    // Initialize the background sprites
+    m_BackgroundTexture.loadFromFile("graphics/backgroundTexture.png");
+    m_BackgroundSprite.setTexture(m_BackgroundTexture);
+    m_BackgroundSprite2.setTexture(m_BackgroundTexture);
+    m_BackgroundSprite.setPosition(0, -200);
+    // Initialize the shader
+    m_Shader.loadFromFile("shaders/glslsandbox109644", sf::Shader::Fragment);
+    if (!m_Shader.isAvailable()) {
+        std::cout << "The shader is not available\n";
+    }
+    m_Shader.setUniform("resolution", sf::Vector2f(2500, 2500));
+    m_ShaderClock.restart();
 }
 
 void CameraGraphics::assemble(
@@ -68,6 +80,63 @@ void CameraGraphics::draw(VertexArray& canvas) {
         }
     }
     m_Window->setView(m_View);
+
+    /// Background stuff
+    Vector2f movement;
+    movement.x = m_Position->left - m_PlayersPreviousPosition.x;
+    movement.y = m_Position->top - m_PlayersPreviousPosition.y;
+    if (m_BackgrounsAreFlipped) {
+        m_BackgroundSprite2.setPosition(
+            m_BackgroundSprite2.getPosition().x + movement.x / 6,
+            m_BackgroundSprite2.getPosition().y + movement.y / 6
+        );
+        m_BackgroundSprite.setPosition(
+            m_BackgroundSprite2.getPosition().x + m_BackgroundSprite2.getTextureRect().getSize().x,
+            m_BackgroundSprite2.getPosition().y
+        );
+        if (
+            m_Position->left >
+            m_BackgroundSprite.getPosition().x + (m_BackgroundSprite.getTextureRect().getSize().x / 2)
+        ) {
+            m_BackgrounsAreFlipped = !m_BackgrounsAreFlipped;
+            m_BackgroundSprite2.setPosition(m_BackgroundSprite.getPosition());
+        }
+    } else {
+        //cout << mBackgrounsAreFlipped << endl;
+        m_BackgroundSprite.setPosition(
+            m_BackgroundSprite.getPosition().x - movement.x / 6,
+            m_BackgroundSprite.getPosition().y + movement.y / 6
+        );
+        m_BackgroundSprite2.setPosition(
+            m_BackgroundSprite.getPosition().x + m_BackgroundSprite.getTextureRect().getSize().x,
+            m_BackgroundSprite.getPosition().y
+        );
+        if (
+            m_Position->left > 
+            m_BackgroundSprite2.getPosition().x + (m_BackgroundSprite2.getTextureRect().getSize().x / 2)
+        ) {
+            m_BackgrounsAreFlipped = !m_BackgrounsAreFlipped;
+            m_BackgroundSprite.setPosition(m_BackgroundSprite2.getPosition());
+        }
+    }
+    m_PlayersPreviousPosition.x = m_Position->left;
+    m_PlayersPreviousPosition.y = m_Position->top;
+    // Set the others parameters who need to be updated every frame
+    m_Shader.setUniform("time", m_ShaderClock.getElapsedTime().asSeconds());
+    sf::Vector2i mousePos = m_Window->mapCoordsToPixel(m_Position->getPosition());
+    m_Shader.setUniform("mouse", sf::Vector2f(mousePos.x, mousePos.y + 1000));
+    if (m_ShaderClock.getElapsedTime().asSeconds() > 10) {
+        m_ShaderClock.restart();
+        m_ShowShader = !m_ShowShader;
+    }
+    if (!m_ShowShader) {
+        m_Window->draw(m_BackgroundSprite, &m_Shader);
+        m_Window->draw(m_BackgroundSprite2, &m_Shader);
+    } else { // Show the parallax background
+        m_Window->draw(m_BackgroundSprite);
+        m_Window->draw(m_BackgroundSprite2);
+    }
+
     // Draw the time UI but only in the main camera
     if (!m_IsMiniMap) {
         m_Text.setString(std::to_string(m_Time));

@@ -21,6 +21,17 @@ private:
 	Font m_Font;
 	int m_TimeAtEndOfGame = 0;
 	float m_Time = 0;
+
+	//For the shaders and parallax background
+	Shader m_Shader;
+	bool m_ShowShader = false;
+	bool m_BackgrounsAreFlipped = false;
+	Clock m_ShaderClock;
+	Vector2f m_PlayersPreviousPosition;
+	Texture m_BackgroundTexture;
+	Sprite m_BackgroundSprite;
+	Sprite m_BackgroundSprite2;
+
 public:
 	CameraGraphics(
 		RenderWindow* window,
