@@ -10,7 +10,8 @@
 #include "MenuUpdate.h"
 #include "MenuGraphics.h"
 #include "RainGraphics.h"
-
+#include "FireballGraphics.h"
+#include "FireballUpdate.h"
 
 #include <iostream>
 
@@ -77,6 +78,19 @@ void Factory::loadLevel(
 		levelUpdate->addPlatformPosition(platformUpdate->getPositionPointer());
 	}
 	// End platforms
+
+	// Fireballs
+	for (int i = 0; i < 12; i++) {
+		GameObject fireball;
+		shared_ptr<FireballUpdate> fireballUpdate = make_shared<FireballUpdate>( levelUpdate->getIsPausedPointer());
+		fireballUpdate->assemble(levelUpdate, playerUpdate);
+		fireball.addComponent(fireballUpdate);
+		shared_ptr<FireballGraphics> fireballGraphics = make_shared<FireballGraphics>();
+		fireballGraphics->assemble(canvas, fireballUpdate, IntRect(870, 0, 32, 32));
+		fireball.addComponent(fireballGraphics);
+		gameObjects.push_back(fireball);
+	}
+	//end fireballs
 
 	 // Rain
 	int rainCoveragePerObject = 25;

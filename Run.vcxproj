@@ -137,6 +137,8 @@
     <ClCompile Include="CameraGraphics.cpp" />
     <ClCompile Include="CameraUpdate.cpp" />
     <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="FireballGraphics.cpp" />
+    <ClCompile Include="FireballUpdate.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="InputDispatcher.cpp" />
@@ -159,6 +161,8 @@
     <ClInclude Include="CameraUpdate.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Factory.h" />
+    <ClInclude Include="FireballGraphics.h" />
+    <ClInclude Include="FireballUpdate.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="InputDispatcher.h" />
